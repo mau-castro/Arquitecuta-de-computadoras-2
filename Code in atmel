@@ -1,0 +1,35 @@
+;
+; Calculadora.asm
+;
+; Created: 20/03/2020 11:23:44 p. m.
+; Author : mau
+;
+Start:
+	;Suma A+B
+	LDI R18, 4;B
+	LDI R17, 1;A
+    ADD R18, R17;A+B
+	OUT PORTB,R18;Guardado en registro 18 y puerto B/Saved in registry 18 and port B
+	;Resta A-B
+	LDI R19, 2 ;B
+	LDI R20, 5 ;A
+    SUB R20, R19;A-B
+	OUT DDRB,R20
+	;Multiplicacion
+	LDI R22, 2;A
+	LDI R23, 6;B
+	MUL R22, R23;A*B, el resultado es guardado en el registro 0 y en el puerto C/ the result is saved in registry 0 and port C
+	OUT PORTC, R0
+	;Division
+	.DEF dividendo = R24
+	.DEF divisor = R25
+	.DEF cociente = R30
+	LDI dividendo, 10
+	LDI divisor, 5
+	CLR cociente
+	divid:	INC cociente
+			SUB dividendo,divisor
+			BRCC divid
+			Dec cociente
+			ADD dividendo,divisor
+	OUT DDRC, cociente ;resultado esta en el registro 30 y en el ddrc/ the result is saved in registry 30 and ddrc
