@@ -1,4 +1,10 @@
-start:;10
+;
+; Calculadora.asm
+;
+; Created: 20/03/2020 11:23:44 p. m.
+; Author : mau
+;
+start:
 	.EQU TEMP0 = $60
 	.EQU TEMP1 = $61
 	.EQU TEMP2 = $62
@@ -9,7 +15,7 @@ start:;10
     STS TEMP0, R28
 	STS TEMP1, R28
 	STS TEMP2, R28
-	STS TEMP3, R28;20
+	STS TEMP3, R28
 	STS TEMP4, R28
 	STS TEMP5, R28
 	LDI R20, TEMP0
